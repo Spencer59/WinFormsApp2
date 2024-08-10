@@ -6,6 +6,11 @@ customtkinter.set_default_color_theme("dark-blue")
 app = customtkinter.CTk()  # create CTk window like you do with the Tk window
 app.geometry("400x240")
 
+
+label = customtkinter.CTkLabel(app, text="The main tab", fg_color="transparent")
+
+
+
 def button_function():
     print("button pressed")
 
@@ -25,15 +30,17 @@ combobox = customtkinter.CTkComboBox(app, values=["option 1", "option 2"],
                                      command=combobox_callback, variable=combobox_var)
 combobox_var.set("option 2")
 
-def combobox_set():
+
+def combox_set():
     combobox.set(value="option 1")
-    
-    
-combobox_state = combobox.cget("state")    
 
     
-
-
+combobox_var2 = combobox.cget(combobox_var)
+    
+if combobox_var2 == "option 1":
+    combox_set(True)
+    customtkinter.set_appearance_mode("light")
+    
 
 
 
